@@ -3,6 +3,7 @@ package com.nextbasecrm.step_defs;
 import com.nextbasecrm.pages.LoginPage;
 import com.nextbasecrm.pages.TimeAndReportsPage;
 //import com.nextbasecrm.utils.BrowserUtils;
+import com.nextbasecrm.utils.BrowserUtils;
 import com.nextbasecrm.utils.ConfigurationReader;
 import com.nextbasecrm.utils.Driver;
 import io.cucumber.java.en.Given;
@@ -30,6 +31,8 @@ public class Test_StepDefs {
     }
 
 
+
+
     @When("User clicks on {string}")
     public void user_clicks_on(String timeAndReports) {
         loginPage.clickOnModuleOf(timeAndReports);
@@ -43,6 +46,7 @@ public class Test_StepDefs {
     @Then("User should see {string}")
     public void user_should_see(String expPageTitle) {
         System.out.println("expPageTitle = " + expPageTitle);
+//        BrowserUtils.sleep(2);
         System.out.println("ectPageTitle = " + reportsPage.featurePageTitle.getText());
         Assert.assertEquals(expPageTitle, reportsPage.featurePageTitle.getText());
     }
