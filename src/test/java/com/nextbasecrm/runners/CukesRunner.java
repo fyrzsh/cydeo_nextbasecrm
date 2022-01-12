@@ -8,13 +8,14 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 
         plugin = {
-                "html:target/cucumber-report.html"
+                "html:target/cucumber-report.html",
+                "json:target/cucumber.json"
         },
 
         features = "src/test/resources/features",
-        glue = "src/test/java/com/nextbasecrm/step_defs",
+        glue = "com/nextbasecrm/step_defs",
         dryRun = false,
-        tags = "@wip"
+        tags = "@smoke"
 )
 
 public class CukesRunner { }
