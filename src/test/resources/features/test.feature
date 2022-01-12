@@ -1,4 +1,4 @@
-@wip
+@smoke
 Feature: Login and Navigation functionality
 
   Background:
