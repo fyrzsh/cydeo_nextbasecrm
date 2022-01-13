@@ -27,6 +27,9 @@ public class MeetingsAndBriefingsPage extends BasePage{
     @FindBy (className = "menu-popup-item-text")
     public List <WebElement> topicPopUpList;
 
+    @FindBy (xpath = "//span[contains(.,'Briefings')]")
+    public WebElement meetingAndBriefingsButton;
+
 
     public WebElement myMeetingTableElem (String tableHeadName) {
         for (WebElement webElement : myMeetingsTableHead) {
