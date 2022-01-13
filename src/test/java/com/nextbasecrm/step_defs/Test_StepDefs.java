@@ -39,16 +39,25 @@ public class Test_StepDefs {
 
     @When("User navigates on {string}")
     public void user_navigates_on(String meetingAndBriefings) {
-        reportsPage.clickOnFeatureOf(meetingAndBriefings);
+        try {
+            reportsPage.clickOnFeatureOf(meetingAndBriefings);
+        } catch (Exception e) {
+            reportsPage.moreTab.click();
+            reportsPage.meetingAndBriefingsHead.click();
+        }
+
     }
 
     @Then("User should see {string}")
     public void user_should_see(String expPageTitle) {
-   //     BrowserUtils.waitForVisibilityOf(reportsPage.featurePageTitle, 10);
-        BrowserUtils.scrollDown(reportsPage.meetingAndBriefingsHead);
+//        BrowserUtils.waitForVisibilityOf(reportsPage.featurePageTitle, 10);
+//        BrowserUtils.scrollDown(reportsPage.meetingAndBriefingsHead);
 //        System.out.println("expPageTitle = " + expPageTitle);
 //        System.out.println("ectPageTitle = " + reportsPage.featurePageTitle.getText());
+
+
         Assert.assertEquals(expPageTitle, reportsPage.featurePageTitle.getText());
+
 
 
 

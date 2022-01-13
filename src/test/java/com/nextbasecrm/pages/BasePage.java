@@ -77,6 +77,9 @@ public abstract class BasePage {
     @FindBy (xpath = "//span[.='Print']")
     public WebElement printButton;
 
+    @FindBy (xpath = "(//span[.='More'])[1]")
+    public WebElement moreTab;
+
 
     public WebElement getModuleOf (String moduleName) {
 
