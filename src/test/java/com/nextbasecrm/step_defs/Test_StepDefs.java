@@ -2,7 +2,6 @@ package com.nextbasecrm.step_defs;
 
 import com.nextbasecrm.pages.LoginPage;
 import com.nextbasecrm.pages.TimeAndReportsPage;
-//import com.nextbasecrm.utils.BrowserUtils;
 import com.nextbasecrm.utils.BrowserUtils;
 import com.nextbasecrm.utils.ConfigurationReader;
 import com.nextbasecrm.utils.Driver;
@@ -21,33 +20,36 @@ public class Test_StepDefs {
     public void user_is_on_the_nextbase_crm_login_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("nextbasecrm.url"));
     }
+
     @When("User enters {string} and {string} and login")
     public void user_enters_and_and_login(String u, String p) {
         loginPage.login(u, p);
     }
+
     @Then("User should see {string} displayed")
     public void user_should_see_displayed(String expTitle) {
         Assert.assertTrue(loginPage.homePageButton.getText().contains(expTitle));
+
     }
-
-
-
 
     @When("User clicks on {string}")
     public void user_clicks_on(String timeAndReports) {
         loginPage.clickOnModuleOf(timeAndReports);
     }
+
     @When("User navigates on {string}")
     public void user_navigates_on(String meetingAndBriefings) {
-        //BrowserUtils.sleep(2);
-        //System.out.println(BrowserUtils.getElementsText(reportsPage.featureList));
         reportsPage.clickOnFeatureOf(meetingAndBriefings);
     }
+
     @Then("User should see {string}")
     public void user_should_see(String expPageTitle) {
-        System.out.println("expPageTitle = " + expPageTitle);
-//        BrowserUtils.sleep(2);
-        System.out.println("ectPageTitle = " + reportsPage.featurePageTitle.getText());
+   //     BrowserUtils.waitForVisibilityOf(reportsPage.featurePageTitle, 10);
+        BrowserUtils.scrollDown(reportsPage.meetingAndBriefingsHead);
+//        System.out.println("expPageTitle = " + expPageTitle);
+//        System.out.println("ectPageTitle = " + reportsPage.featurePageTitle.getText());
         Assert.assertEquals(expPageTitle, reportsPage.featurePageTitle.getText());
+
+
     }
 }

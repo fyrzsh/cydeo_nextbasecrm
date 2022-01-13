@@ -86,6 +86,11 @@ public class BrowserUtils {
         return wait.until(ExpectedConditions.visibilityOf(elem));
     }
 
+    public static void  waitForVisibilityOf (WebElement elem, int timeout) {
+        WebDriverWait wait = new WebDriverWait (Driver.getDriver(), timeout);
+        wait.until(ExpectedConditions.visibilityOf(elem));
+    }
+
     public static WebElement waitForVisibility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));

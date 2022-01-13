@@ -12,6 +12,9 @@ public class TimeAndReportsPage extends BasePage{
     @FindBy(xpath = "//span[@class='main-buttons-item-text-title']")
     public List <WebElement> featureList;
 
+    @FindBy (xpath = "//span[contains(.,'Briefings')]")
+    public WebElement meetingAndBriefingsHead;
+
 
 
     public void clickOnFeatureOf (String feature) {
