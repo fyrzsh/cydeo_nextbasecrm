@@ -1,8 +1,10 @@
 package com.nextbasecrm.utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
@@ -25,7 +27,20 @@ public class Driver {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
-                    driver.manage().window().maximize();
+//                   driver.manage().window().maximize();
+//                   driver.manage().window().fullscreen();
+                    driver.manage().window().setSize(new Dimension(1920, 1080));
+
+//                    declaring the webdriver
+//                    headless options
+//                    WebDriverManager.chromedriver().setup();
+//                    ChromeOptions headlessOptions = new ChromeOptions();
+//                    headlessOptions.addArguments("--headless");
+//                    headlessOptions.addArguments("--disable-gpu");
+//                    headlessOptions.addArguments("--window-size=1920,1200");
+
+                    //start driver
+                    //driver = new ChromeDriver(headlessOptions);
                     driver.manage().timeouts().implicitlyWait( 10, TimeUnit.SECONDS);
                     break;
                 case "firefox":
